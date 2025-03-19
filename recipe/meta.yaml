@@ -1,5 +1,5 @@
 {% set name = "apache-flink-libraries" %}
-{% set version = "1.20.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/apache-flink-libraries-{{ version }}.tar.gz
-  sha256: be28293619b1d7b04c970b947133ae8d0ca86681f23694be063b3659ea69bb79
+  sha256: 916cdd32d870db6cf6409f621b3c5baedfaf1ad4bb7b638c68af488475f27f46
 
 build:
   noarch: python
