@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  version: 2.3.0
+
+package:
+  name: apache-flink-libraries
+  version: ${{ version }}
+
+source:
+- url: https://files.pythonhosted.org/packages/source/a/apache-flink-libraries/apache_flink_libraries-${{ version }}.tar.gz
+  sha256: 570bf8831d3c1336311e924e97119e52d8842e5485a4a7709ff9a92db709b006
+
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - pyflink
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - '*'
+
+about:
+  summary: Apache Flink Libraries
+  license: Apache-2.0 AND BSD-2-Clause AND MPL-2.0 AND Unlicense AND MIT AND BSD-3-Clause AND EPL-2.0
+  license_file:
+    - NOTICE
+    - LICENSE
+    - deps/licenses/*
+  homepage: https://flink.apache.org
+
+extra:
+  recipe-maintainers:
+    - gforsyth
