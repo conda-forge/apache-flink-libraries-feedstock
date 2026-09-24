@@ -1,16 +1,16 @@
 schema_version: 1
 
 context:
-  name: apache-flink-libraries
-  version: "2.2.1"
+  version: 2.3.0
 
 package:
-  name: ${{ name|lower }}
+  name: apache-flink-libraries
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: eec27ffa86d01184de7f5ab668c479c83cdb75ebc7fba8091307da4f1a9d3348
+- url: https://files.pythonhosted.org/packages/source/a/apache-flink-libraries/apache_flink_libraries-${{ version }}.tar.gz
+  sha256: 570bf8831d3c1336311e924e97119e52d8842e5485a4a7709ff9a92db709b006
+
 
 build:
   number: 0
@@ -21,6 +21,7 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
+    - setuptools
   run:
     - python >=${{ python_min }}
 
@@ -39,32 +40,9 @@ about:
   license_file:
     - NOTICE
     - LICENSE
-    - deps/licenses/LICENSE.base64
-    - deps/licenses/LICENSE.py4j
-    - deps/licenses/LICENSE.scala
-    - deps/licenses/LICENSE.minlog
-    - deps/licenses/LICENSE.jzlib
-    - deps/licenses/LICENSE.google-auth-library-credentials
-    - deps/licenses/LICENSE.influx
-    - deps/licenses/LICENSE.antlr-java-grammar-files
-    - deps/licenses/LICENSE.protobuf
-    - deps/licenses/LICENSE.pyrolite
-    - deps/licenses/LICENSE.jline
-    - deps/licenses/LICENSE.kryo
-    - deps/licenses/LICENSE.jsr166y
-    - deps/licenses/LICENSE.jaxb
-    - deps/licenses/LICENSE.javax.activation
-    - deps/licenses/LICENSE.asm
-    - deps/licenses/LICENSE.icu4j
-    - deps/licenses/LICENSE.automaton
-    - deps/licenses/LICENSE.grizzled-slf4j
-    - deps/licenses/LICENSE.slf4j-api
-    - deps/licenses/LICENSE.janino
-    - deps/licenses/LICENSE.antlr-runtime
-    - deps/licenses/LICENSE.webbit
+    - deps/licenses/*
   homepage: https://flink.apache.org
 
 extra:
   recipe-maintainers:
     - gforsyth
-
